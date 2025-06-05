@@ -1,3 +1,4 @@
+import ast
 import argparse
 import copy
 import difflib
@@ -79,7 +80,7 @@ def parse_json_files(root_dir, output_dir, metadata_objs, preds_objs):
                                 ]
                                 if tool_calls is not None:
                                     for tool_call in tool_calls:
-                                        tool_call_dict = eval(
+                                        tool_call_dict = ast.literal_eval(
                                             tool_call['function']['arguments']
                                         )
 
